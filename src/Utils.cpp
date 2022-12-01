@@ -27,10 +27,23 @@ namespace Utils {
 		std::ifstream file(path);
 
 		std::string s;
-		while(std::getline(file, s))
-			inputs.emplace_back(stoi(s));
+		while(std::getline(file, s)) {
+			if (!s.empty())
+				inputs.emplace_back(stoi(s));
+			else
+				inputs.emplace_back(0);
+		}
 
 		file.close();
 		return inputs;
+	}
+
+	void ProfilerTimer::Stop() {
+		using FloatingPointMicroseconds = std::chrono::duration<double, std::micro>;
+		const auto endTimepoint = std::chrono::steady_clock::now();
+		const auto highResStart = FloatingPointMicroseconds{ m_StartTimepoint.time_since_epoch() };
+		m_ElapsedTime = std::chrono::time_point_cast<std::chrono::microseconds>(endTimepoint).time_since_epoch() - std::chrono::time_point_cast<std::chrono::microseconds>(m_StartTimepoint).time_since_epoch();
+
+		m_Stopped = true;
 	}
 }
