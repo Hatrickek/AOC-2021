@@ -1,2 +1,2 @@
-# AOC-2021
-Advent Of Code 2021 solutions in C++
+# AOC-2022
+Advent Of Code 2022 solutions in C++
