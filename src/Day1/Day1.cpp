@@ -2,11 +2,14 @@
 
 #include "../Utils.h"
 
-void GetElvesList(const std::vector<int>& data, std::vector<int>* elves) {
+void GetElvesList(const std::vector<int> &data, std::vector<int> *elves)
+{
 	int current = 0;
-	for(const int i : data) {
+	for (const int i : data)
+	{
 		current += i;
-		if(i == 0) {
+		if (i == 0)
+		{
 			elves->emplace_back() += current;
 			current = 0;
 		}
@@ -15,43 +18,42 @@ void GetElvesList(const std::vector<int>& data, std::vector<int>* elves) {
 
 std::vector<int> elves;
 
-void Part1(const std::vector<int>& data) {
+void Part1(const std::vector<int> &data)
+{
 	Utils::ProfilerTimer timer;
 
-
 	int current = 0;
-	for(const int i : data) {
+	int richestElf = -1;
+	for (const int i : data)
+	{
 		current += i;
-		if(i == 0) {
+		if (i == 0)
+		{
 			elves.emplace_back() += current;
+			if (current > richestElf)
+				richestElf = current;
 			current = 0;
 		}
 	}
 
-	int richestElf = 0;
-
-	for(const auto& elf : elves) {
-		if(elf > richestElf) {
-			richestElf = elf;
-		}
-	}
-
-	LOG(richestElf);
+	//LOG(richestElf);
 
 	timer.Print("Day 1, Part 1");
 }
 
-void Part2() {
+void Part2()
+{
 	Utils::ProfilerTimer timer;
 
 	std::ranges::sort(elves, std::greater());
-	LOG(elves[0] + elves[1] + elves[2]);
+	//LOG(elves[0] + elves[1] + elves[2]);
 
-	timer.Print("Day 2, Part 2");
+	timer.Print("Day 1, Part 2");
 }
 
-void Day1() {
-	const std::vector<int>& data = Utils::ReadInputFileAsInt("day1");
+void Day1()
+{
+	const std::vector<int> &data = Utils::ReadInputFileAsInt("day1");
 
 	Part1(data);
 

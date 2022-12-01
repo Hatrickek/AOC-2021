@@ -25,13 +25,13 @@ namespace Utils {
 				Stop();
 		}
 
-		float ElapsedMilliSeconds() const { return static_cast<float>(m_ElapsedTime.count()) / 1000.0f; }
+		double ElapsedMilliSeconds() const { return (m_ElapsedTime.count()) / 1000.0f; }
 
-		float ElapsedMicroSeconds() const { return static_cast<float>(m_ElapsedTime.count()) / 1000.0f; }
+		double ElapsedMicroSeconds() const { return (m_ElapsedTime.count()) / 100.0f; }
 
 		void Stop();
 
-		void Print(const std::string_view day);
+		void Print(const std::string_view arg);
 	private:
 		const char* m_Name;
 		bool m_WriteProfile;

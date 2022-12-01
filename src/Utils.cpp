@@ -20,6 +20,7 @@ namespace Utils {
 	}
 
 	std::vector<int> ReadInputFileAsInt(const std::string& day) {
+		ProfilerTimer timer;
 		std::vector<int> inputs;
 		const std::filesystem::path fileName = "input.txt";
 		const std::filesystem::path srcPath = "src";
@@ -35,6 +36,8 @@ namespace Utils {
 		}
 
 		file.close();
+		timer.Print("Input loaded");
+
 		return inputs;
 	}
 
@@ -45,7 +48,8 @@ namespace Utils {
 		m_Stopped = true;
 	}
 
-	void ProfilerTimer::Print(const std::string_view day) {
-		Stop(); LOG(day << "  | Took: " << ElapsedMicroSeconds() << "us");
+	void ProfilerTimer::Print(const std::string_view arg) {
+		Stop(); 
+		LOG(arg << "  | Took: " << ElapsedMicroSeconds() << "us");
 	}
 }
