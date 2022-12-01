@@ -31,7 +31,7 @@ namespace Utils {
 
 		void Stop();
 
-		void Print(const std::string_view day) { Stop(); LOG(day << " " << ElapsedMicroSeconds() << "us"); }
+		void Print(const std::string_view day);
 	private:
 		const char* m_Name;
 		bool m_WriteProfile;
