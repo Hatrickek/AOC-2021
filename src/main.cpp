@@ -3,7 +3,7 @@
 #include "Day3/Day3.h"
 
 int main() {
-	Day1();
-	//Day2();
+	//Day1();
+	Day2();
 	//Day3();
 }

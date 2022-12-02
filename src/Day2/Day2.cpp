@@ -1,44 +1,50 @@
 #include "../Utils.h"
 
-void Part1(const std::vector<std::string>& data) {
-	int depth = 0, horizontal = 0;
+// A -> ROCK
+// B -> PAPER
+// C -> SCISSOR
 
-	for (const auto& i : data) {
-		if (i.starts_with("forward")) {
-			const int value = stoi(i.substr(8, i.find(' ')));
-			horizontal += value;
-		}
-		if(i.starts_with("up")) {
-			const int value = stoi(i.substr(3, i.find(' ')));
-			depth -= value;
-		}
-		if(i.starts_with("down")) {
-			const int value = stoi(i.substr(5, i.find(' ')));
-			depth += value;
-		}
+void Part1(const std::vector<std::string>& data) {
+	Utils::ProfilerTimer timer;
+
+	int score = 0;
+
+	for(auto& item : data) {
+		if(item == "A X") score += 4;
+		else if(item == "A Y") score += 8;
+		else if(item == "A Z") score += 3;
+		else if(item == "B X") score += 1;
+		else if(item == "B Y") score += 5;
+		else if(item == "B Z") score += 9;
+		else if(item == "C X") score += 7;
+		else if(item == "C Y") score += 2;
+		else if(item == "C Z") score += 6;
 	}
-	LOG(depth * horizontal);
+
+	timer.Print("Day2, Part1");
+
+	LOG(score);
 }
 
 void Part2(const std::vector<std::string>& data) {
-	int deep = 0, aim = 0, position = 0;
+	Utils::ProfilerTimer timer;
+	int score = 0;
 
-	for(const auto& i : data) {
-		if(i.starts_with("forward")) {
-			const int value = stoi(i.substr(8, i.find(' ')));
-			position += value;
-			deep += aim * value;
-		}
-		if(i.starts_with("up")) {
-			const int value = stoi(i.substr(3, i.find(' ')));
-			aim -= value;
-		}
-		if(i.starts_with("down")) {
-			const int value = stoi(i.substr(5, i.find(' ')));
-			aim += value;
-		}
+	for(auto& item : data) {
+		if(item == "A X") score += 3;
+		else if(item == "A Y") score += 4;
+		else if(item == "A Z") score += 8;
+		else if(item == "B X") score += 1;
+		else if(item == "B Y") score += 5;
+		else if(item == "B Z") score += 9;
+		else if(item == "C X") score += 2;
+		else if(item == "C Y") score += 6;
+		else if(item == "C Z") score += 7;
 	}
-	LOG(position * deep);
+
+	timer.Print("Day2, Part2");
+
+	LOG(score);
 }
 
 void Day2() {
