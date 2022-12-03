@@ -28,6 +28,7 @@ void Day3Part1(const std::vector<std::string>& data) {
 void Day3Part2(std::vector<std::string>& data) {
 	Utils::ProfilerTimer timer;
 	int score = 0;
+
 	std::array<int, 58> counter{};
 	std::ranges::fill(counter, 0);
 	for(auto& line : data) {

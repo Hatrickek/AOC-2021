@@ -41,6 +41,14 @@ namespace Utils {
 		return inputs;
 	}
 
+	double ProfilerTimer::ElapsedMilliSeconds() const {
+		return m_ElapsedTime.count() / 1000.0;
+	}
+
+	double ProfilerTimer::ElapsedMicroSeconds() const {
+		return m_ElapsedTime.count() / 10.0;
+	}
+
 	void ProfilerTimer::Stop() {
 		const auto endTimepoint = std::chrono::steady_clock::now();
 		m_ElapsedTime = std::chrono::time_point_cast<std::chrono::microseconds>(endTimepoint).time_since_epoch() - std::chrono::time_point_cast<std::chrono::microseconds>(m_StartTimepoint).time_since_epoch();

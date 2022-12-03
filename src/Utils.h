@@ -25,13 +25,13 @@ namespace Utils {
 				Stop();
 		}
 
-		double ElapsedMilliSeconds() const { return m_ElapsedTime.count() / 1000.0; }
+		double ElapsedMilliSeconds() const;
 
-		double ElapsedMicroSeconds() const { return m_ElapsedTime.count() / 100.0; }
+		double ElapsedMicroSeconds() const;
 
 		void Stop();
 
-		void Print(const std::string_view arg);
+		void Print(std::string_view arg);
 	private:
 		const char* m_Name;
 		bool m_WriteProfile;
