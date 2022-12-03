@@ -18,7 +18,7 @@ void GetElvesList(const std::vector<int> &data, std::vector<int> *elves)
 
 std::vector<int> elves;
 
-void Part1(const std::vector<int> &data)
+void Day1Part1(const std::vector<int> &data)
 {
 	Utils::ProfilerTimer timer;
 
@@ -36,26 +36,27 @@ void Part1(const std::vector<int> &data)
 		}
 	}
 
-	//LOG(richestElf);
-
 	timer.Print("Day 1, Part 1");
+
+	LOG(richestElf);
 }
 
-void Part2()
+void Day1Part2()
 {
 	Utils::ProfilerTimer timer;
 
 	std::ranges::sort(elves, std::greater());
-	//LOG(elves[0] + elves[1] + elves[2]);
 
 	timer.Print("Day 1, Part 2");
+
+	LOG(elves[0] + elves[1] + elves[2]);
 }
 
 void Day1()
 {
 	const std::vector<int> &data = Utils::ReadInputFileAsInt("day1");
 
-	Part1(data);
+	Day1Part1(data);
 
-	Part2();
+	Day1Part2();
 }

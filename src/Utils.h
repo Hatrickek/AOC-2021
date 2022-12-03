@@ -25,9 +25,9 @@ namespace Utils {
 				Stop();
 		}
 
-		double ElapsedMilliSeconds() const { return (m_ElapsedTime.count()) / 1000.0f; }
+		double ElapsedMilliSeconds() const { return m_ElapsedTime.count() / 1000.0; }
 
-		double ElapsedMicroSeconds() const { return (m_ElapsedTime.count()) / 100.0f; }
+		double ElapsedMicroSeconds() const { return m_ElapsedTime.count() / 100.0; }
 
 		void Stop();
 

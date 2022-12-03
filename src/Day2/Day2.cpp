@@ -4,7 +4,7 @@
 // B -> PAPER
 // C -> SCISSOR
 
-void Part1(const std::vector<std::string>& data) {
+void Day2Part1(const std::vector<std::string>& data) {
 	Utils::ProfilerTimer timer;
 
 	int score = 0;
@@ -26,7 +26,7 @@ void Part1(const std::vector<std::string>& data) {
 	LOG(score);
 }
 
-void Part2(const std::vector<std::string>& data) {
+void Day2Part2(const std::vector<std::string>& data) {
 	Utils::ProfilerTimer timer;
 	int score = 0;
 
@@ -49,6 +49,6 @@ void Part2(const std::vector<std::string>& data) {
 
 void Day2() {
 	const auto& data = Utils::ReadInputFile("Day2");
-	Part1(data);
-	Part2(data);
+	Day2Part1(data);
+	Day2Part2(data);
 }
