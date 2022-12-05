@@ -5,6 +5,7 @@
 #include <vector>
 
 #define LOG(...) std::cout << __VA_ARGS__ << std::endl
+#define LOGN(...) std::cout << __VA_ARGS__
 
 #define PROFILER_START() Utils::ProfilerTimer timer
 #define PROFILER_STOP(timer) timer.Print("Day 1")
@@ -31,7 +32,7 @@ namespace Utils {
 
 		void Stop();
 
-		void Print(std::string_view arg);
+		void Print(std::string_view arg = "");
 	private:
 		const char* m_Name;
 		bool m_WriteProfile;

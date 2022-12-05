@@ -42,11 +42,11 @@ namespace Utils {
 	}
 
 	double ProfilerTimer::ElapsedMilliSeconds() const {
-		return m_ElapsedTime.count() / 1000.0;
+		return static_cast<double>(m_ElapsedTime.count()) / 1000.0;
 	}
 
 	double ProfilerTimer::ElapsedMicroSeconds() const {
-		return m_ElapsedTime.count() / 10.0;
+		return static_cast<double>(m_ElapsedTime.count());
 	}
 
 	void ProfilerTimer::Stop() {
@@ -57,7 +57,10 @@ namespace Utils {
 	}
 
 	void ProfilerTimer::Print(const std::string_view arg) {
-		Stop(); 
-		LOG(arg << "  | Took: " << ElapsedMicroSeconds() << "us");
+		Stop();
+		if(arg.empty())
+			LOG(m_Name << "  | Took: " << ElapsedMicroSeconds() << "us");
+		else
+			LOG(arg << "  | Took: " << ElapsedMicroSeconds() << "us");
 	}
 }
