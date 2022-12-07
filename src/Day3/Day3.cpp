@@ -1,3 +1,4 @@
+#include "Day3.hpp"
 #include "../Utils.h"
 #include <array>
 #include <algorithm>

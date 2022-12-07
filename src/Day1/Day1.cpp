@@ -1,4 +1,4 @@
-#include "Day1.h"
+#include "Day1.hpp"
 
 #include "../Utils.h"
 

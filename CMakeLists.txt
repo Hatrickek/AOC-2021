@@ -47,7 +47,7 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 set(PROJECT_NAME AOC2022)
 
-file(GLOB_RECURSE src "src/*.h" "src/*.cpp")
+file(GLOB_RECURSE src "src/*.hpp" "src/*.cpp")
 source_group("Source Files" FILES ${src})
 
 set(ALL_FILES

@@ -1,4 +1,4 @@
-#include "Day7.h"
+#include "Day7.hpp"
 #include "../Utils.h"
 
 struct File {
@@ -24,13 +24,13 @@ auto UpdateSizes(Directory* fileSystem) -> uint64_t {
 	return fileSystem->Size;
 }
 
-uint64_t CountDirsLteThreshold(const Directory* main_dir) {
+auto CountDirsThreshold(const Directory* main_dir) -> uint64_t {
 	uint64_t sum = 0;
 	for(const auto& dir : main_dir->Directories) {
 		if(dir->Size <= 100'000) {
 			sum += dir->Size;
 		}
-		const auto ans = CountDirsLteThreshold(dir.get());
+		const auto ans = CountDirsThreshold(dir.get());
 		sum += ans;
 	}
 	return sum;
@@ -90,7 +90,7 @@ void Day7Part1(const std::vector<std::string>& data) {
 
 	UpdateSizes(&fileSystem);
 
-	auto sum = CountDirsLteThreshold(&fileSystem);
+	auto sum = CountDirsThreshold(&fileSystem);
 	if(fileSystem.Size <= 100'000) {
 		sum += fileSystem.Size;
 	}
@@ -100,11 +100,11 @@ void Day7Part1(const std::vector<std::string>& data) {
 	LOG(sum);
 }
 
-uint64_t FindDirectoryGte(const Directory* mainDir, const uint64_t threshold) {
+uint64_t FindDirectoryMin(const Directory* mainDir, const uint64_t threshold) {
 	auto min = mainDir->Size;
 	for(const auto& dir : mainDir->Directories) {
 		if(dir->Size > threshold) {
-			const auto minAboveThresh = FindDirectoryGte(dir.get(), threshold);
+			const auto minAboveThresh = FindDirectoryMin(dir.get(), threshold);
 			min = std::min(min, minAboveThresh);
 		}
 	}
@@ -168,7 +168,7 @@ void Day7Part2(const std::vector<std::string>& data) {
 
 	const auto available = 70'000'000 - fileSystem.Size;
 	const auto required = 30'000'000 - available;
-	const auto val = FindDirectoryGte(&fileSystem, required);
+	const auto val = FindDirectoryMin(&fileSystem, required);
 	timer.Print();
 
 	LOG(val);

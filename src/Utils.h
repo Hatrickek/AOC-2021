@@ -30,6 +30,8 @@ namespace Utils {
 
 		double ElapsedMicroSeconds() const;
 
+		double ElapsedNanoSeconds() const;
+
 		void Stop();
 
 		void Print(std::string_view arg = "");

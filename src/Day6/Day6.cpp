@@ -1,4 +1,4 @@
-#include "Day6.h"
+#include "Day6.hpp"
 #include "../Utils.h"
 #include <unordered_map>
 
