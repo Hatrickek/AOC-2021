@@ -13,6 +13,7 @@
 namespace Utils {
 	std::vector<std::string> ReadInputFile(const std::string& day);
 	std::vector<int> ReadInputFileAsInt(const std::string& day);
+	std::vector<std::vector<char>> ReadInputFileAs2D(const std::string& day);
 
 	class ProfilerTimer {
 	public:

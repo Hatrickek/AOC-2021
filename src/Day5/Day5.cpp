@@ -3,7 +3,7 @@
 #include <regex>
 #include <stack>
 
-#include "../Utils.h"
+#include "../Utils.hpp"
 
 auto ParseInput(const std::vector<std::string>& data) -> std::vector<std::stack<char>> {
 	std::vector<std::string> stackLines;

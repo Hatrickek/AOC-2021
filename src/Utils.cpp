@@ -1,9 +1,34 @@
-#include "Utils.h"
+#include "Utils.hpp"
 
 #include <filesystem>
 #include <fstream>
 
 namespace Utils {
+	std::vector<std::vector<char>> ReadInputFileAs2D(const std::string& day) {
+		std::vector<std::vector<char>> result;
+		const std::filesystem::path fileName = "input.txt";
+		const std::filesystem::path srcPath = "src";
+		const std::filesystem::path path = srcPath / day / fileName;
+		std::ifstream file(path);
+
+		std::vector<std::string> lines;
+		std::string s;
+		while(std::getline(file, s))
+			lines.emplace_back(s);
+
+		result.resize(lines.size());
+		for(auto& r : result)
+			r.resize(lines.size());
+
+		for(size_t i = 0; i < lines.size(); i++) {
+			for(size_t j = 0; j < lines[i].size(); j++) {
+				result[i][j] = lines[i][j];
+			}
+		}
+
+		file.close();
+		return result;
+	}
 	std::vector<std::string> ReadInputFile(const std::string& day) {
 		std::vector<std::string> inputs;
 		const std::filesystem::path fileName = "input.txt";
@@ -20,7 +45,6 @@ namespace Utils {
 	}
 
 	std::vector<int> ReadInputFileAsInt(const std::string& day) {
-		ProfilerTimer timer;
 		std::vector<int> inputs;
 		const std::filesystem::path fileName = "input.txt";
 		const std::filesystem::path srcPath = "src";
@@ -36,7 +60,6 @@ namespace Utils {
 		}
 
 		file.close();
-		timer.Print("Input loaded");
 
 		return inputs;
 	}

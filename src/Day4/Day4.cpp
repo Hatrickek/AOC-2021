@@ -1,6 +1,6 @@
 #include "Day4.hpp"
 
-#include "../Utils.h"
+#include "../Utils.hpp"
 
 auto Split(const std::string& str, const char delim) -> std::pair<std::string, std::string> {
 	const auto offset = str.find(delim);

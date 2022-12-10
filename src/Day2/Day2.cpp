@@ -1,5 +1,5 @@
 #include "Day2.hpp"
-#include "../Utils.h"
+#include "../Utils.hpp"
 // A -> ROCK
 // B -> PAPER
 // C -> SCISSOR

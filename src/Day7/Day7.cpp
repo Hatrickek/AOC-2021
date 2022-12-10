@@ -1,5 +1,5 @@
 #include "Day7.hpp"
-#include "../Utils.h"
+#include "../Utils.hpp"
 
 struct File {
 	std::string Name;

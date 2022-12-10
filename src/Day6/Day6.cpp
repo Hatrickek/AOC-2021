@@ -1,5 +1,5 @@
 #include "Day6.hpp"
-#include "../Utils.h"
+#include "../Utils.hpp"
 #include <unordered_map>
 
 void Day6Part1(const std::vector<std::string>& data) {

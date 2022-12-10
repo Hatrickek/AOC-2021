@@ -1,5 +1,5 @@
 #include "Day3.hpp"
-#include "../Utils.h"
+#include "../Utils.hpp"
 #include <array>
 #include <algorithm>
 #include <fstream>

@@ -1,6 +1,6 @@
 #include "Day1.hpp"
 
-#include "../Utils.h"
+#include "../Utils.hpp"
 
 void GetElvesList(const std::vector<int> &data, std::vector<int> *elves)
 {
