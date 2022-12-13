@@ -7,8 +7,9 @@
 #include "Day7/Day7.hpp"
 #include "Day8/Day8.hpp"
 #include "Day9/Day9.hpp"
-//#include "Day10/Day10.hpp"
+#include "Day10/Day10.hpp"
 #include "Day11/Day11.hpp"
+#include "Day12/Day12.hpp"
 
 int main() {
 	//Day1();
@@ -21,5 +22,6 @@ int main() {
 	//Day8();
 	//Day9();
 	//Day10();
-	Day11();
+	//Day11();
+	Day12();
 }
