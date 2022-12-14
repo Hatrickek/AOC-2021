@@ -10,6 +10,7 @@
 #include "Day10/Day10.hpp"
 #include "Day11/Day11.hpp"
 #include "Day12/Day12.hpp"
+#include "Day13/Day13.hpp"
 
 int main() {
 	//Day1();
@@ -23,5 +24,6 @@ int main() {
 	//Day9();
 	//Day10();
 	//Day11();
-	Day12();
+	//Day12();
+	Day13();
 }
